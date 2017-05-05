@@ -1,0 +1,12 @@
+c:\users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\bin\Debug\BankomatV2.exe.config
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\bin\Debug\BankomatV2.exe
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\bin\Debug\BankomatV2.pdb
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.csprojResolveAssemblyReference.cache
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.Form1.resources
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.InsertCard.resources
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.Properties.Resources.resources
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.csproj.GenerateResource.Cache
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.exe
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.pdb
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\bin\Debug\MySql.Data.dll
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.Phase1Panel.resources
