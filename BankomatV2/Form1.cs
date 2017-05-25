@@ -32,6 +32,7 @@ namespace BankomatV2
         private Phase1Panel pp1;
         private ErrPanel errPanel;
         private EnterPin enterPin;
+        private string user_input = "";
 
         public void setuserData(string aId,long cId)
         {
@@ -102,5 +103,111 @@ namespace BankomatV2
                 panel2.Controls.Add(enterPin);
             }
         }
+        /*******************************************************/
+        //1
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dPhase == DysplayPhase.enterPin && user_input.Length < 4)
+            {
+                user_input += "1";
+                enterPin.setPin(user_input);
+            }
+        }
+        //2
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dPhase == DysplayPhase.enterPin && user_input.Length < 4)
+            {
+                user_input += "2";
+                enterPin.setPin(user_input);
+            }
+        }
+        //3
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dPhase == DysplayPhase.enterPin && user_input.Length < 4)
+            {
+                user_input += "3";
+                enterPin.setPin(user_input);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (dPhase == DysplayPhase.enterPin && user_input.Length < 4)
+            {
+                user_input += "4";
+                enterPin.setPin(user_input);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (dPhase == DysplayPhase.enterPin && user_input.Length < 4)
+            {
+                user_input += "5";
+                enterPin.setPin(user_input);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (dPhase == DysplayPhase.enterPin && user_input.Length < 4)
+            {
+                user_input += "6";
+                enterPin.setPin(user_input);
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (dPhase == DysplayPhase.enterPin && user_input.Length < 4)
+            {
+                user_input += "7";
+                enterPin.setPin(user_input);
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (dPhase == DysplayPhase.enterPin && user_input.Length < 4)
+            {
+                user_input += "8";
+                enterPin.setPin(user_input);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (dPhase == DysplayPhase.enterPin && user_input.Length < 4)
+            {
+                user_input += "9";
+                enterPin.setPin(user_input);
+            }
+        }
+        //0
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (dPhase == DysplayPhase.enterPin && user_input.Length < 4)
+            {
+                user_input += "0";
+                enterPin.setPin(user_input);
+            }
+        }
+        //C
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (dPhase == DysplayPhase.enterPin)
+            {
+                user_input = "";
+                enterPin.setPin(user_input);
+            }
+        }
+        //OK
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+        }
+        /*********************************************************************************/
     }
 }

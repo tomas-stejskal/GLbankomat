@@ -101,5 +101,25 @@ namespace BankomatV2
         }
         /**************************************************************************************************/
 
+        public bool pinVerification(string pin,string card_number)
+        {
+            bool answer = false;
+            string query = "select * from card";
+            if (openConn())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query,conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                }
+                catch
+                {
+
+                }
+            }
+
+
+            return answer;
+        }
     } 
 }
