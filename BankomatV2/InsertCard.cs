@@ -31,7 +31,7 @@ namespace BankomatV2
         private void button1_Click(object sender, EventArgs e)
         {
             long val = (long)numericUpDown1.Value;
-            DatabaseInterface di = new DatabaseInterface();
+            DatabaseInterface di = DatabaseInterface.getInstance();
             string result = di.getAccountId(val);
             if (result.Equals(""))
             {

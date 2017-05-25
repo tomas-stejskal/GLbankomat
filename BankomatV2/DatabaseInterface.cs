@@ -10,12 +10,17 @@ namespace BankomatV2
     
     class DatabaseInterface
     {
-        MySqlConnection conn;
+        private MySqlConnection conn = new MySqlConnection("SERVER=localhost;DATABASE=glbank;UID=root;PASSWORD=1234;");
+        private static DatabaseInterface dat = new DatabaseInterface();
 
-        public DatabaseInterface()
+        private  DatabaseInterface()
         {
-            string con_str = "SERVER=localhost;DATABASE=glbank;UID=root;PASSWORD=1234;";
-            conn = new MySqlConnection(con_str);
+           // string con_str = "SERVER=localhost;DATABASE=glbank;UID=root;PASSWORD=1234;";
+           // conn = new MySqlConnection(con_str);
+        }
+        public static DatabaseInterface getInstance()
+        {
+            return dat;
         }
 
         private bool openConn()
@@ -69,5 +74,32 @@ namespace BankomatV2
             }
             return result;
         }
+        /**************************************************************************/
+        public bool isCardBlocked(string card_number)
+        {
+            bool answer = true;
+            string query = "select blocked from cards where cardnumber="+card_number+";";
+            if (openConn())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        answer = reader["blocked"].ToString().Equals("T");
+                    }
+                }
+                catch(MySqlException ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                closeConn();
+            }
+
+            return answer;
+        }
+        /**************************************************************************************************/
+
     } 
 }

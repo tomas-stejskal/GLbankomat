@@ -19,6 +19,7 @@ namespace BankomatV2
     {
         selectLang,
         enterPin,
+        cardBlocked,
         makeTransaction
     }
 
@@ -28,12 +29,21 @@ namespace BankomatV2
         private AppLanguage appLang;
         private string account_id;
         private long card_id;
-        Phase1Panel pp1;
+        private Phase1Panel pp1;
+        private ErrPanel errPanel;
+        private EnterPin enterPin;
 
         public void setuserData(string aId,long cId)
         {
             account_id = aId;
             card_id = cId;
+          /*  DatabaseInterface dbi = DatabaseInterface.getInstance();
+            bool isBlocked = dbi.isCardBlocked(card_id.ToString());
+            if (isBlocked)
+            {
+                dPhase = DysplayPhase.cardBlocked;
+                Console.WriteLine(isBlocked);
+            }*/
         }
 
         public Form1()
@@ -53,14 +63,44 @@ namespace BankomatV2
         //set slovak language
         private void button16_Click(object sender, EventArgs e)
         {
-            appLang = AppLanguage.Slovensky;
-            pp1.Dispose();
+            if (DysplayPhase.selectLang == dPhase)
+            {
+                appLang = AppLanguage.Slovensky;
+                pp1.Dispose();
+                checkCardValidity();
+            }
+            
         }
         //set english language
         private void button20_Click(object sender, EventArgs e)
         {
-            appLang = AppLanguage.English;
-            pp1.Dispose();
+            if(DysplayPhase.selectLang == dPhase)
+            {
+                appLang = AppLanguage.English;
+                pp1.Dispose();
+                checkCardValidity();
+            }
+           
+        }
+
+        private void checkCardValidity()
+        {
+            Console.WriteLine(appLang);
+            DatabaseInterface dat = DatabaseInterface.getInstance();
+            if (dat.isCardBlocked(card_id.ToString()))
+            {
+                dPhase = DysplayPhase.cardBlocked;
+                errPanel = new ErrPanel(appLang);
+                this.panel2.Controls.Clear();
+                this.panel2.Controls.Add(errPanel);
+            }
+            else
+            {
+                dPhase = DysplayPhase.enterPin;
+                enterPin = new EnterPin(appLang);
+                panel2.Controls.Clear();
+                panel2.Controls.Add(enterPin);
+            }
         }
     }
 }

@@ -10,3 +10,5 @@ C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\De
 C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.pdb
 C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\bin\Debug\MySql.Data.dll
 C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.Phase1Panel.resources
+C:\Users\tomi\Documents\Visual Studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.ErrPanel.resources
+C:\Users\tomi\Documents\Visual Studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.EnterPin.resources
