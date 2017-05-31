@@ -1,2 +1,3 @@
 ﻿Your card is blocked
 Enter the pin code
+Vrong PIN code!

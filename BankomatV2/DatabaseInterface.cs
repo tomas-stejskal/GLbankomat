@@ -101,25 +101,103 @@ namespace BankomatV2
         }
         /**************************************************************************************************/
 
-        public bool pinVerification(string pin,string card_number)
+        public bool isPinValid(string pin,string card_number)
         {
             bool answer = false;
-            string query = "select * from card";
+            string query = "select * from cards where cardnumber like'" + card_number+"';";
             if (openConn())
             {
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand(query,conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        string res = reader["pin_code"].ToString();
+                        Console.WriteLine(res + "    " + pin);
+                        answer = res.Equals(pin);
+                    }
                 }
-                catch
+                catch (Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());
+                }
+                closeConn();
+            }
+            return answer;
+        }
 
+        public void setWrongTry(string card_num)
+        {
+            string query = "update cards set vrong_try = vrong_try + 1 where cardnumber="+card_num+";";
+            if (openConn())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                }catch(Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                closeConn();
+            }
+            string q2 = "select * from cards where cardnumber like'" + card_num + "';";
+            int wrongryCounter = 0;
+            if (openConn())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(q2, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        wrongryCounter = (int)reader["vrong_try"];
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+
+                closeConn();
+            }
+            if (wrongryCounter >= 3)
+            {
+                string q3 = "update cards set blocked = 'T' where cardnumber=" + card_num + ";";
+                if (openConn())
+                {
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand(q3, conn);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                    closeConn();
                 }
             }
+        }
 
-
-            return answer;
+        public void resetWrongTry(string card_num)
+        {
+            string query = "update cards set vrong_try = 0 where cardnumber=" + card_num + ";";
+            if (openConn())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                closeConn();
+            }
+            
         }
     } 
 }

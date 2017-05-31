@@ -111,6 +111,7 @@ namespace BankomatV2
             {
                 user_input += "1";
                 enterPin.setPin(user_input);
+                enterPin.unSetErr();
             }
         }
         //2
@@ -120,6 +121,7 @@ namespace BankomatV2
             {
                 user_input += "2";
                 enterPin.setPin(user_input);
+                enterPin.unSetErr();
             }
         }
         //3
@@ -129,6 +131,7 @@ namespace BankomatV2
             {
                 user_input += "3";
                 enterPin.setPin(user_input);
+                enterPin.unSetErr();
             }
         }
 
@@ -138,6 +141,7 @@ namespace BankomatV2
             {
                 user_input += "4";
                 enterPin.setPin(user_input);
+                enterPin.unSetErr();
             }
         }
 
@@ -147,6 +151,7 @@ namespace BankomatV2
             {
                 user_input += "5";
                 enterPin.setPin(user_input);
+                enterPin.unSetErr();
             }
         }
 
@@ -156,6 +161,7 @@ namespace BankomatV2
             {
                 user_input += "6";
                 enterPin.setPin(user_input);
+                enterPin.unSetErr();
             }
         }
 
@@ -165,6 +171,7 @@ namespace BankomatV2
             {
                 user_input += "7";
                 enterPin.setPin(user_input);
+                enterPin.unSetErr();
             }
         }
 
@@ -174,6 +181,7 @@ namespace BankomatV2
             {
                 user_input += "8";
                 enterPin.setPin(user_input);
+                enterPin.unSetErr();
             }
         }
 
@@ -183,6 +191,7 @@ namespace BankomatV2
             {
                 user_input += "9";
                 enterPin.setPin(user_input);
+                enterPin.unSetErr();
             }
         }
         //0
@@ -192,6 +201,7 @@ namespace BankomatV2
             {
                 user_input += "0";
                 enterPin.setPin(user_input);
+                enterPin.unSetErr();
             }
         }
         //C
@@ -206,7 +216,32 @@ namespace BankomatV2
         //OK
         private void button12_Click(object sender, EventArgs e)
         {
-
+            if (dPhase == DysplayPhase.enterPin && user_input.Length == 4)
+            {
+                DatabaseInterface di = DatabaseInterface.getInstance();
+                bool isPinValid = di.isPinValid(user_input, card_id.ToString());
+                
+                if (isPinValid)
+                {
+                    di.resetWrongTry(card_id.ToString());
+                }else
+                {
+                    bool isCardBlockt = di.isCardBlocked(card_id.ToString());
+                    if (isCardBlockt)
+                    {
+                        dPhase = DysplayPhase.cardBlocked;
+                        errPanel = new ErrPanel(appLang);
+                        this.panel2.Controls.Clear();
+                        this.panel2.Controls.Add(errPanel);
+                    }else
+                    {
+                        di.setWrongTry(card_id.ToString());
+                        enterPin.setErr();
+                        user_input = "";
+                        enterPin.setPin(user_input);
+                    }
+                }
+            }
         }
         /*********************************************************************************/
     }

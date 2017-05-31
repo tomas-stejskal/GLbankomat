@@ -13,10 +13,11 @@ namespace BankomatV2
 {
     public partial class EnterPin : UserControl
     {
+        private string[] text;
         public EnterPin(AppLanguage l)
         {
             InitializeComponent();
-            string[] text;
+            label2.Text = "";
             if (l == AppLanguage.Slovensky)
             {
                 text = File.ReadAllText("slovensky.txt").Split('\n');
@@ -32,6 +33,15 @@ namespace BankomatV2
         public void setPin(string pin)
         {
             textBox1.Text = pin;
+        }
+
+        public void setErr()
+        {
+            label2.Text = text[2];
+        }
+        public void unSetErr()
+        {
+            label2.Text = "";
         }
     }
 }

@@ -1,2 +1,3 @@
 ﻿Vaša karta je zablokovaná
 Zadajte pin kód
+Nesprávny PIN kód!
