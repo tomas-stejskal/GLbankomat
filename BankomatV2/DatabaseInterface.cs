@@ -199,5 +199,144 @@ namespace BankomatV2
             }
             
         }
+        public string getAccountStatus(string accouint_id)
+        {
+            string res = "";
+            string query = "select balance,isActive from accounts where idAcc = " + accouint_id+";";
+            if (openConn())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        res = reader["balance"].ToString();
+                        res += ';';
+                        res += reader["isActive"].ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                closeConn();
+            }
+            return res;
+        }
+
+        public int change_pin(long card_num,string old_pin, string new_pin)
+        {
+            int status = -1;
+            if (openConn())
+            {
+                string query = "select pin_code from cards where cardnumber = "+card_num+";";
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query,conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    string res = "";
+                    if (reader.Read())
+                    {
+                        res = reader["pin_code"].ToString();
+                    }
+                    if (res.Equals(old_pin))
+                    {
+                        status = 0;
+                    }
+                    else
+                    {
+                        status = 1;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                closeConn();
+            }
+            if (status != 0)
+                return status;
+
+             if(openConn())
+             {
+
+                 string query = "update cards set pin_code='"+new_pin+"' where cardnumber = "+card_num+";";
+                 try
+                 {
+                     MySqlCommand cmd = new MySqlCommand(query,conn);
+                     cmd.ExecuteNonQuery();
+                 }
+                 catch (Exception ex)
+                 {
+                     Console.WriteLine(ex.ToString());
+                     status = -1;
+                 }
+                 closeConn();
+             }
+            return status;
+        }
+
+        public int pcik_up_cash(string accID,double value)
+        {
+            int response = 1;//0=OK; 1=less balance;2= blocked account
+            if (openConn())
+            {
+                try
+                {
+                    string query = "select balance,isActive from accounts where idAcc = "+accID+";";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    double balance;
+                    string acc_stat = "";
+                    if (reader.Read())
+                    {
+                        acc_stat = reader["isActive"].ToString();
+                        balance = Double.Parse(reader["balance"].ToString());
+                        while (true)
+                        {
+                            if (!String.Equals("T", acc_stat))
+                            {
+                                response = 2;
+                                break;
+                            }
+                            if(balance < value)
+                            {
+                                response = 1;
+                                break;
+                            }else
+                            {
+                                response = 0;
+                            }
+                            break;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                closeConn();
+            }
+            if (response != 0)
+                return response;
+
+            if (openConn())
+            {
+                try
+                {
+                    string query = "update accounts set balance=balance -"+value+" where idAcc="+accID+";";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                closeConn();
+            }
+
+            return response;
+        }
     } 
 }

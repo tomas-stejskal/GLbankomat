@@ -1,3 +1,22 @@
 ﻿Your card is blocked
 Enter the pin code
 Vrong PIN code!
+Get cash
+Account status
+Change PIN code
+Exit
+Your balance:
+Your account is blocked
+Your account is active
+back
+Enter the old PIN
+Enter the new PIN
+Enter the new PIN again
+cancel
+Verify PIN don't match
+Vrong old PIN
+PIN is succesfull changed
+cancel
+Account is blocked
+Lack of noney in account
+Transaction succesfull

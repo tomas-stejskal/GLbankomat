@@ -1,3 +1,22 @@
 ﻿Vaša karta je zablokovaná
 Zadajte pin kód
 Nesprávny PIN kód!
+Výber hotovosti
+Stav účtu
+Zmena PIN kódu
+Ukončit
+Suma na účte:
+Váš účet je blokovaný
+Váš účet je aktívny
+späť
+Zadajte starý PIN
+Zadajte nový PIN
+Potvrdte nový PIN
+zrušiť
+Overovací PIN sa nezhoduje
+Starý PIN je nesprávny
+PIN úspešne zmenený
+zrušiť
+Účet je blokovaný
+Nedostatok penazí na učte
+Tranzakcia prebeha úspešne

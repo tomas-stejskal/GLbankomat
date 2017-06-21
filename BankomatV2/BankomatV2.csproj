@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account_status.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account_status.Designer.cs">
+      <DependentUpon>Account_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chang_pin_panel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chang_pin_panel.Designer.cs">
+      <DependentUpon>Chang_pin_panel.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseInterface.cs" />
     <Compile Include="EnterPin.cs">
       <SubType>UserControl</SubType>
@@ -71,14 +83,38 @@
     <Compile Include="InsertCard.Designer.cs">
       <DependentUpon>InsertCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuAfterLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuAfterLogin.Designer.cs">
+      <DependentUpon>MenuAfterLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Phase1Panel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Phase1Panel.Designer.cs">
       <DependentUpon>Phase1Panel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pick_up_cash.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pick_up_cash.Designer.cs">
+      <DependentUpon>Pick_up_cash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transaction_msg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction_msg.Designer.cs">
+      <DependentUpon>Transaction_msg.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Account_status.resx">
+      <DependentUpon>Account_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chang_pin_panel.resx">
+      <DependentUpon>Chang_pin_panel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EnterPin.resx">
       <DependentUpon>EnterPin.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,8 +127,14 @@
     <EmbeddedResource Include="InsertCard.resx">
       <DependentUpon>InsertCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MenuAfterLogin.resx">
+      <DependentUpon>MenuAfterLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Phase1Panel.resx">
       <DependentUpon>Phase1Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pick_up_cash.resx">
+      <DependentUpon>Pick_up_cash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -103,6 +145,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Transaction_msg.resx">
+      <DependentUpon>Transaction_msg.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

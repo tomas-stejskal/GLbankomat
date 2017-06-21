@@ -12,3 +12,8 @@ C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\bin\De
 C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.Phase1Panel.resources
 C:\Users\tomi\Documents\Visual Studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.ErrPanel.resources
 C:\Users\tomi\Documents\Visual Studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.EnterPin.resources
+C:\Users\tomi\Documents\Visual Studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.MenuAfterLogin.resources
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.Account_status.resources
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.Chang_pin_panel.resources
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.Pick_up_cash.resources
+C:\Users\tomi\documents\visual studio 2015\Projects\BankomatV2\BankomatV2\obj\Debug\BankomatV2.Transaction_msg.resources
